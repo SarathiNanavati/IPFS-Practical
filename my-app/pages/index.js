@@ -1,7 +1,7 @@
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
 import { BigNumber, Contract, providers, utils } from "ethers";
-import { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { NFT_CONTRACT_ABI, NFT_CONTRACT_ADDRESS } from "../constants";
 import Web3Modal from "web3modal";
 
@@ -23,7 +23,7 @@ export default function Home() {
     } catch (err) {
       console.error(err);
       setWalletConnected(false);
-      setConnectedAddress(zero);
+      setConnectedAddress(zero.toString());
     }
   };
   const getProviderOrSigner = async (needSigner = false) => {
